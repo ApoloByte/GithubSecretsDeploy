@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     jobs:
       run_pull:
-        name: run pull734E9D1
+        name: run pull
         runs-on: ubuntu-latest
         steps:
           - name: executing remote ssh commands using ssh
