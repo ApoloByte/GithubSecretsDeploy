@@ -9,6 +9,8 @@ function App() {
   return (
     <>
 
+      <h1>Apolobyte</h1>
+
       <div>
         <form action="">
           <input type="text" placeholder="Enter text" />
@@ -20,6 +22,8 @@ function App() {
           <li>Second item</li>
           <li>Third item</li>
         </ol>
+
+        <h1>Hola Mundo</h1>
 
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
