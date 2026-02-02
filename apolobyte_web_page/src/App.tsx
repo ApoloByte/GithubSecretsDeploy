@@ -9,6 +9,8 @@ function App() {
   return (
     <>
 
+      <h1>Apolobyte</h1>
+
       <div>
         <form action="">
           <input type="text" placeholder="Enter text" />
