@@ -10,6 +10,10 @@ function App() {
     <>
 
       <h1>Apolobyte</h1>
+      <h2>
+        Importante: Esta es una aplicación de ejemplo creada con Vite y React.
+        Puedes modificarla según tus necesidades.
+      </h2>
 
       <div>
         <form action="">
