@@ -1,0 +1,60 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: apolobyte-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: apolobyte_db
+    ports:
+      - "27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d:ro
+    networks:
+      - apolobyte-net
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: apolobyte-backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env.example
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/apolobyte_db
+      - PORT=3507
+    depends_on:
+      - mongo
+    ports:
+      - "3507:3507"
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - apolobyte-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: apolobyte-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_BASE=/api
+    ports:
+      - "3007:3007"
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    networks:
+      - apolobyte-net
+
+networks:
+  apolobyte-net:
+    driver: bridge
+
+volumes:
+  mongo_data:
