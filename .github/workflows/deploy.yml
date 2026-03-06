@@ -25,7 +25,5 @@ jobs:
             git fetch
             git checkout ${{ secrets.MAIN_BRANCH}}
             git pull origin ${{ secrets.MAIN_BRANCH}}
-            cd apolobyte_web_page
-            npm i
-            npm run build
+            docker compose restart
             exit
