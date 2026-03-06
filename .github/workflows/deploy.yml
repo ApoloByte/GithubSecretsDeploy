@@ -21,7 +21,7 @@ jobs:
           passphrase: ${{ secrets.SSH_PASSPHRASE }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /home/admin/GithubSecretsDeploy/
+            cd /home/admin/projects/GithubSecretsDeploy/
             git fetch
             git checkout ${{ secrets.MAIN_BRANCH}}
             git pull origin ${{ secrets.MAIN_BRANCH}}
