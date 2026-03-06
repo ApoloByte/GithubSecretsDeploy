@@ -24,7 +24,6 @@ function App() {
           <li>Third item</li>
         </ol>
 
-        <h1>Hola Mundo</h1>
 
       </div>
 
